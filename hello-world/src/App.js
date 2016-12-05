@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import logo from './logo.svg';
 import './App.css';
 
-class Square extends React.Component {
+class Square extends Component {
   render() {
     return (
       <button className="square" onClick={() => this.props.onClick()}>
@@ -12,7 +12,7 @@ class Square extends React.Component {
   }
 }
 
-class Board extends React.Component {
+class Board extends Component {
   renderSquare(i) {
     return <Square value={this.props.squares[i]} onClick={() => this.props.onClick(i)} />;
   }
@@ -41,7 +41,7 @@ class Board extends React.Component {
 
 }
 
-class Game extends React.Component {
+class Game extends Component {
     constructor() {
     super();
     this.state = {
@@ -93,7 +93,7 @@ class Game extends React.Component {
       'Move #' + move :
       'Game start';
       return (
-        <li  key = {move}>
+        <li  key={move}>
           <a href="#" onClick={() => this.jumpTo(move)}>{desc}</a>
         </li>
       );
@@ -113,13 +113,6 @@ class Game extends React.Component {
     );
   }
 }
-
-// ========================================
-
-//ReactDOM.render(
-//  <Game />,
-//  document.getElementById('container')
-//);
 
 function calculateWinner(squares) {
   const lines = [
@@ -150,7 +143,6 @@ class App extends Component {
           <h2>Welcome to React</h2>
         </div>
         <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
 	  <Game />
         </p>
       </div>
